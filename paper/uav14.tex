@@ -56,7 +56,10 @@
  
  ƒуга $\alpha_k^k\rho_k^k$ за врем€ $dt^{k+1}$ переходит в дугу $(\alpha_k^k+d\alpha_{k+1}^k)(\rho_k^k+d\rho_{k+1}^k) + ds_{k+1}^{k+1})$, следовательно 
  приращение окружной деформации равно:
- $$ \d(p_\theta)^{k+1}_{k+1} = \dfrac{(\alpha_k^k+d\alpha_{k+1}^k)(\rho_k^k+d\rho_{k+1}^k) + ds_{k+1}^{k+1}) - \alpha_k^k\rho_k^k}{\alpha_k^k\rho_k^k}$$
+\begin{equation} 
+\d(p_\theta)^{k+1}_{k+1} = \dfrac{(\alpha_k^k+d\alpha_{k+1}^k)(\rho_k^k+d\rho_{k+1}^k) + ds_{k+1}^{k+1}) - \alpha_k^k\rho_k^k}{\alpha_k^k\rho_k^k}
+\label{uav14:f1.5}
+\end{equation}
 
 ќчевидно, что длина дуги касани€, определенна€ вплоть до каждого участка равна
 \begin{equation} 
@@ -84,8 +87,29 @@ s_i^{k+1}(x_i^{k+1}) &= \int\limits^1_{x_i^{k+1}}\sqrt{1+f_x'^2}\,dx;
 \alpha(x^{k+1}_i)&= \dfrac{\pi}{2} - \arctg(g'_{x^{k+1}_i});\; d\alpha = \alpha'_{x^{k+1}_i}dx^{k+1}_i
 \end{split}
 \right\}
+\label{uav14:f3.5}
 \end{eqnarray}
 
+¬ыреза€ элемент мембраны и записыва€ уравнени€ его равновеси€ в проекци€ах на нормаль и касательную получаем \ref{uav14:mal}:
+
+\begin{equation} 
+\sigma_\theta = \dfrac{q\rho}{H}, \; \sigma_\theta H = \texttt{const}.
+\label{uav14:f4}
+\end{equation}
+
+»з уравнени€ равновеси€ (\ref{uav14:f4}), подставленного в (\ref{uav14:f1}) получаем:
+
+\begin{equation} 
+(\.{p}_\theta)^{k+1}_{k+1} = \left(\dfrac{1}{1-\dfrac{\sqrt{3}}{2}\dfrac{\rho_k^kq}{H_0H^h_k}}-1\right)^n.
+\label{uav14:f5}
+\end{equation}
+
+»сключа€ $(\.{p}_\theta)^{k+1}_{k+1}$ из уравнени€ (\ref{uav14:f5}) при помощи (\ref{uav14:f1.5}) и (\ref{uav14:f3.5}) получим:
+\begin{equation} 
+(\.{p}_\theta)^{k+1}_{k+1} = \left(\dfrac{1}{1-\dfrac{\sqrt{3}}{2}\dfrac{\rho_k^kq}{H_0H^h_k}}-1\right)^n.
+\label{uav14:f6}
+\end{equation}
+ 
  % ќтрезок $A_i^kA_{i+1}^k$ за врем€ $dt^{k+1}$ удлин€етс€ на величину $\Delta$
  ќсновыва€сь на работах [\ref{uav14:jer}-\ref{uav14:samara}] и использу€ дробно-степенную сингул€рную модель [\ref{uav14:shest}] получаем уравнение зависимости $\overline{x}_0(\overline{t})$:  
 
