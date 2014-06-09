@@ -1,9 +1,9 @@
 #include "utils.h"
 
-bool utils::eql(double a, double b){
+bool util::eql(double a, double b){
 	return abs(a-b) < kEpsilon;
 };
 
-bool utils::IsNan(double a){
-	return a != a
+bool util::IsNan(double a){
+	return a != a;
 };
