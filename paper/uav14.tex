@@ -1,0 +1,47 @@
+\documentclass[a4paper,12pt, openany]{memoir}
+\usepackage{msiu_term_work}
+\usepackage{my_term_styles}
+\usepackage{samgtubib}
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{chngcntr}
+
+\numberwithin{equation}{chapter}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+
+\setcounter{figure}{0}
+\numberwithin{figure}{chapter}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{\c@figure}}
+\captionsetup{width=15cm}
+\begin{document}
+
+\renewcommand{\contentsname}{{\Large{Оглавление}\hfill}}
+
+\title{Разработка программы для моделирования ползучести и разрушения мембраны внутри криволинейной матрицы}
+{Уколова Александра Владимировна}
+{А.\+В.~Уколова}
+{д.ф.-м.н., проф.}
+{А.\+М.~Локощенко}
+{2013}
+
+%\tableofcontents
+
+\input{intro}
+\input{lit_obr}
+\input{sect1}
+\input{sect2}
+\input{conclusion}
+\input{bib}
+%\bibliographystyle{plainnat}
+%\bibliography{bib}
+%\printbibliography
+
+\input{adds}
+
+\end{document}
+
+
+\endinput
