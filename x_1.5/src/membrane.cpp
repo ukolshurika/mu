@@ -134,7 +134,14 @@ void Membrane::constrained(int steps){
       dx = x-x_prev;
       if(dx < 1e-8) dx=0;
       DCHECK(x <= x_prev);
+      
       rho_k[i] = sqrt(x*x+x*x/Matrix::kKBSquare/pow(x, 2*Matrix::kK-2));
+      // for (int j = 0; j<t; ++j){
+      //   cerr << sk[j] << " ";
+
+      // }
+      // cerr << endl;
+      DCHECK(!util::IsNan(rho_k[i]));
       d_rho_k[i] = (x*x+(2-Matrix::kK)*pow(x, 3-2*Matrix::kK)/Matrix::kKBSquare)/rho_k[i]*dx;
       alpha_k[i] = M_PI_2 - atan(1/(Matrix::kK*Matrix::kB*pow(x, Matrix::kK-1)));
       double k = Matrix::kK;
@@ -147,7 +154,7 @@ void Membrane::constrained(int steps){
 
     for(auto i = 0; i<t; ++i){
       h_k1[i] = h_k[i]-h_k[i]*pow(1/(1-sqrt(3)/2*q_*rho_k[t-1]/h0_/h_k[t-1])-1, n_)*dt;
-      cerr  << h_k[i]*pow(1/(1-sqrt(3)/2*q_*rho_k[t-1]/h0_/h_k[t-1])-1, n_)*dt<< endl;
+      // cerr  << h_k[i] << " " << h_k[i]*pow(1/(1-sqrt(3)/2*q_*rho_k[t-1]/h0_/h_k[t-1])-1, n_)*dt << endl;
       DCHECK(h_k1[i]>0);
       x_data << i << " "<< h_k1[i]<< endl;
     }
@@ -156,6 +163,7 @@ void Membrane::constrained(int steps){
     DCHECK(ds_k1[t]>0);
 
     x = Membrane::find_x(sk[t-1] + ds_k1[t]);    
+   cerr << x << endl;
     rho_k[t] = sqrt(x*x+x*x/Matrix::kKBSquare/pow(x, 2*Matrix::kK-2));
     alpha_k[t] = M_PI_2 - atan(1/(Matrix::kK*Matrix::kB*pow(x, Matrix::kK-1)));
 
@@ -170,9 +178,9 @@ void Membrane::constrained(int steps){
     // // cerr << ds_k1[t] << "===="  << t<< endl;
     // if(t>1) 
 
-      // h_k1[t]=(1-h/h0_)/(alpha_k[t]*rho_k[t]);
+      h_k1[t]= h_k[t-1]-h_k[t-1]*pow(1/(1-sqrt(3)/2*q_*rho_k[t-1]/h0_/h_k[t-1])-1, n_)*dt;
     // else 
-      h_k1[t] = h_k1[t-1];
+      // h_k1[t] = h_k1[t-1];
     // cerr << h_k1[t] << "@!" << endl;
     // DCHECK(abs(1 - h/h0_ - h_k1[t]*alpha_k[t]*rho_k[t])< 0.1);
 
