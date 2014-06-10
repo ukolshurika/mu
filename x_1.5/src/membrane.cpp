@@ -18,6 +18,11 @@ namespace{
   const int kSimpsonStep = 99;
 }
 
+  ofstream h_data("data/h.dat");
+  ofstream sigma_data ("data/s.dat");
+  ofstream x_data ("data/x.dat");
+
+
 struct SFunctor{
   SFunctor(){};
   double operator()(double x) const{
@@ -61,6 +66,8 @@ void Membrane::free(int steps){
 
   for (auto it = v.begin(); it != v.end(); ++it) {
     t_free_.push_back(make_pair((it->first + offset), it->second));
+    h_data << (it->first + offset)<< " " << sin(it->second)/(it->second) << endl;
+    s_data << (it->first + offset)<< " " << q*it->second/h0/sin(x)/sin(x)*1000 << endl;
     offset += it->first;
   }
 }
@@ -92,9 +99,6 @@ double Membrane::find_x(double s){
 void Membrane::constrained(int steps){
   prepare_x_k();
 
-  ofstream h_data("data/h.dat");
-  ofstream sigma_data ("data/s.dat");
-  ofstream x_data ("data/x.dat");
 
 
   double init_sigma_k = q_/h1_; // Q*RHO/H (from free stadia)
